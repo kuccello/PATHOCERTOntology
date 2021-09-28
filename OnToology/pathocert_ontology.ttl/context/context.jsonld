@@ -1,19 +1,111 @@
 {
   "@context" : {
+    "ModellingTools" : {
+      "@id" : "https://w3id.org/def/pathocert/ModellingTools"
+    },
+    "Meter" : {
+      "@id" : "https://saref.etsi.org/core/Meter"
+    },
     "versionInfo" : {
       "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
     },
     "license" : {
       "@id" : "http://purl.org/dc/terms/license"
     },
+    "TemporalDuration" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalDuration"
+    },
+    "DayOfWeek" : {
+      "@id" : "http://www.w3.org/2006/time#DayOfWeek"
+    },
     "issued" : {
       "@id" : "http://purl.org/dc/terms/issued"
+    },
+    "FeatureOfInterest" : {
+      "@id" : "https://saref.etsi.org/core/FeatureOfInterest"
+    },
+    "measuresProperty" : {
+      "@id" : "https://saref.etsi.org/core/measuresProperty",
+      "@type" : "@id"
+    },
+    "Geometry" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#Geometry"
+    },
+    "Instant" : {
+      "@id" : "http://www.w3.org/2006/time#Instant"
+    },
+    "sfWithin" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#sfWithin",
+      "@type" : "@id"
+    },
+    "Feature" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#Feature"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Measurement" : {
+      "@id" : "https://saref.etsi.org/core/Measurement"
+    },
+    "WaterInfrastructure" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+    },
+    "WaterUse" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterUse"
+    },
+    "DigitalTools" : {
+      "@id" : "https://w3id.org/def/pathocert/DigitalTools"
+    },
+    "hasProperty" : {
+      "@id" : "https://saref.etsi.org/core/hasProperty",
+      "@type" : "@id"
+    },
+    "measurementMadeBy" : {
+      "@id" : "https://saref.etsi.org/core/measurementMadeBy",
+      "@type" : "@id"
+    },
+    "Interval" : {
+      "@id" : "http://www.w3.org/2006/time#Interval"
     },
     "creator" : {
       "@id" : "http://purl.org/dc/terms/creator"
     },
+    "Water" : {
+      "@id" : "https://saref.etsi.org/saref4watr/Water"
+    },
+    "TemporalEntity" : {
+      "@id" : "http://www.w3.org/2006/time#TemporalEntity"
+    },
+    "hasSubSystem" : {
+      "@id" : "https://saref.etsi.org/saref4syst/hasSubSystem",
+      "@type" : "@id"
+    },
+    "WaterAsset" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterAsset"
+    },
     "preferredNamespacePrefix" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "Point" : {
+      "@id" : "http://www.opengis.net/ont/sf#Point"
+    },
+    "makesMeasurement" : {
+      "@id" : "https://saref.etsi.org/core/makesMeasurement",
+      "@type" : "@id"
+    },
+    "hasGeometry" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#hasGeometry",
+      "@type" : "@id"
+    },
+    "Property" : {
+      "@id" : "https://saref.etsi.org/core/Property"
+    },
+    "sfContains" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#sfContains",
+      "@type" : "@id"
     },
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
@@ -24,14 +116,63 @@
     "publisher" : {
       "@id" : "http://purl.org/dc/terms/publisher"
     },
+    "SpatialObject" : {
+      "@id" : "http://www.opengis.net/ont/geosparql#SpatialObject"
+    },
     "modified" : {
       "@id" : "http://purl.org/dc/terms/modified"
+    },
+    "Pump" : {
+      "@id" : "https://saref.etsi.org/saref4watr/Pump"
+    },
+    "Actuator" : {
+      "@id" : "https://saref.etsi.org/core/Actuator"
+    },
+    "isIntendedFor" : {
+      "@id" : "https://saref.etsi.org/saref4watr/isIntendedFor",
+      "@type" : "@id"
+    },
+    "hasMeasurement" : {
+      "@id" : "https://saref.etsi.org/core/hasMeasurement",
+      "@type" : "@id"
+    },
+    "WaterDevice" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterDevice"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#comment"
+    },
+    "controlsProperty" : {
+      "@id" : "https://saref.etsi.org/core/controlsProperty",
+      "@type" : "@id"
+    },
+    "Polygon" : {
+      "@id" : "http://www.opengis.net/ont/sf#Polygon"
+    },
+    "System" : {
+      "@id" : "https://saref.etsi.org/saref4syst/System"
+    },
+    "isDesignedFor" : {
+      "@id" : "https://saref.etsi.org/saref4watr/isDesignedFor",
+      "@type" : "@id"
+    },
+    "Device" : {
+      "@id" : "https://saref.etsi.org/core/Device"
+    },
+    "Valve" : {
+      "@id" : "https://saref.etsi.org/saref4watr/Valve"
+    },
+    "WaterProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterProperty"
     },
     "description" : {
       "@id" : "http://purl.org/dc/terms/description"
     },
     "preferredNamespaceUri" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
+    },
+    "Sensor" : {
+      "@id" : "https://saref.etsi.org/core/Sensor"
     }
   }
 }
