@@ -14,6 +14,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix s4watr: <https://saref.etsi.org/saref4watr/> .
 @prefix pathocert: <https://w3id.org/def/pathocert/> .
+@prefix ngsild: <https://uri.etsi.org/ngsi-ld/> .
 @base <https://w3id.org/def/pathocert/> .
 
 <https://w3id.org/def/pathocert/> rdf:type owl:Ontology ;
@@ -217,9 +218,29 @@ s4watr:hasPhenomenonTime rdf:type owl:ObjectProperty ;
                            rdfs:comment "The time for which the value of a measurement applies to the feature of interest."@en .
 
 ###  https://w3id.org/def/pathocert/sourceOfDisease
-saref:sourceOfDisease rdf:type owl:ObjectProperty ;
+pathocert:sourceOfDisease rdf:type owl:ObjectProperty ;
                          rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
                          rdfs:label "source of disease"@en .
+
+###  https://w3id.org/def/pathocert/associatedWithWaterQualityProperty
+pathocert:associatedWithWaterQualityProperty rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                         rdfs:label "associated With Water Quality Property"@en .
+
+###  https://w3id.org/def/pathocert/identifies
+pathocert:identifies rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                         rdfs:label "identifies"@en .
+
+###  https://w3id.org/def/pathocert/exploitsVulnerabilityOf
+pathocert:exploitsVulnerabilityOf rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                         rdfs:label "exploits vulnerability of"@en .
+
+###  https://w3id.org/def/pathocert/performInteraction
+pathocert:performInteraction rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                         rdfs:label "perform Interaction"@en .
 
 #################################################################
 #    Data properties
@@ -271,6 +292,61 @@ saref:hasManufacturer rdf:type owl:DatatypeProperty ;
 saref:hasTimestamp rdf:type owl:DatatypeProperty ;
                    rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
                    rdfs:label "has timestamp"@en .
+
+###  https://w3id.org/def/pathocert/severity
+pathocert:severity rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "severity"@en .
+
+###  https://w3id.org/def/pathocert/analyseAt
+pathocert:analyseAt rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "analyse At"@en .
+
+###  https://w3id.org/def/pathocert/consequence
+pathocert:consequence rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "consequence"@en .
+
+###  https://w3id.org/def/pathocert/peopleExposed
+pathocert:peopleExposed rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "people Exposed"@en .
+
+###  https://w3id.org/def/pathocert/peopleHospitalised
+pathocert:peopleHospitalised rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "people Hospitalised"@en .
+
+###  https://w3id.org/def/pathocert/peopleDied
+pathocert:peopleDied rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "people Died"@en .
+
+###  https://w3id.org/def/pathocert/timeContamination
+pathocert:timeContamination rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "time Contamination"@en .
+
+###  https://w3id.org/def/pathocert/investigation
+pathocert:investigation rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "investigation"@en .
+
+###  https://w3id.org/def/pathocert/mitigationOptions
+pathocert:mitigationOptions rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "mitigation options"@en .
+
+###  https://w3id.org/def/pathocert/restoiration
+pathocert:restoiration rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "restoiration"@en .
+
+###  https://w3id.org/def/pathocert/hasNotification
+pathocert:hasNotification rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "has Notification"@en .
 
 #################################################################
 #    Classes
@@ -698,6 +774,40 @@ pathocert:AirBorne rdf:type owl:Class ;
                   ] ;
                   rdfs:comment "A air borne disease is a disease transferred by air"@en ;
                   rdfs:label "Air-Borne"@en .
+
+###  https://w3id.org/def/pathocert/Vulnerability
+pathocert:Vulnerability rdf:type owl:Class ;
+                        rdfs:comment "Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source"@en ;
+                        rdfs:label "Vulnerability"@en .
+
+###  https://w3id.org/def/pathocert/Risk
+pathocert:Risk rdf:type owl:Class ;
+                        rdfs:comment "a situation involving exposure to danger."@en ;
+                        rdfs:label "Risk"@en .
+
+###  https://w3id.org/def/pathocert/InteractionAffordance
+pathocert:InteractionAffordance rdf:type owl:Class ;
+                        rdfs:comment "a interaction situation between users of digial services ."@en ;
+                        rdfs:label "Interaction Affordance"@en .
+
+###  https://w3id.org/def/pathocert/ControlActions
+pathocert:ControlActions rdf:type owl:Class ;
+                        rdfs:subClassOf pathocert:InteractionAffordance;
+                        rdfs:comment "a interaction situation that permit to do specific actions over a system or feature of interest."@en ;
+                        rdfs:label "Control Actions"@en .
+
+###  https://w3id.org/def/pathocert/ControlActions
+pathocert:EventAffordance rdf:type owl:Class ;
+                        rdfs:subClassOf pathocert:InteractionAffordance;
+                        rdfs:comment "a interaction situation that permit to create specific event"@en ;
+                        rdfs:label "Event Affordance"@en .
+
+###  https://w3id.org/def/pathocert/NotificationAffordance
+pathocert:NotificationAffordance rdf:type owl:Class ;
+                        rdfs:subClassOf pathocert:InteractionAffordance;
+                        rdfs:comment "a interaction situation that performs an specific notification"@en ;
+                        rdfs:label "Notification Affordance"@en .
+
 
 #################################################################
 #    Individuals
