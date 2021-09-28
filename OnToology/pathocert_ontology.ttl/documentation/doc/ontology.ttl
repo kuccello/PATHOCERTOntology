@@ -68,6 +68,14 @@
 rdf:comment rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2002/07/owl#cardinality
+owl:cardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#qualifiedCardinality
+owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Datatypes
 #################################################################
@@ -105,13 +113,46 @@ xsd:gDay rdf:type rdfs:Datatype .
 
 
 ###  https://saref.etsi.org/core/hasMeasurement
-<https://saref.etsi.org/core/hasMeasurement> rdf:type owl:ObjectProperty .
+<https://saref.etsi.org/core/hasMeasurement> rdf:type owl:ObjectProperty ;
+                                             rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                             rdfs:label "has measurement"@en .
 
 
 ###  https://saref.etsi.org/core/hasProperty
 <https://saref.etsi.org/core/hasProperty> rdf:type owl:ObjectProperty ;
                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
                                           rdfs:label "has property"@en .
+
+
+###  https://saref.etsi.org/core/isControlledByDevice
+<https://saref.etsi.org/core/isControlledByDevice> rdf:type owl:ObjectProperty ;
+                                                   rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                                   rdfs:label "is controlled by device"@en .
+
+
+###  https://saref.etsi.org/core/isMeasuredByDevice
+<https://saref.etsi.org/core/isMeasuredByDevice> rdf:type owl:ObjectProperty ;
+                                                 rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                                 rdfs:label "is measured by device"@en .
+
+
+###  https://saref.etsi.org/core/isMeasuredIn
+<https://saref.etsi.org/core/isMeasuredIn> rdf:type owl:ObjectProperty ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:label "is measured in"@en .
+
+
+###  https://saref.etsi.org/core/isMeasurementOf
+<https://saref.etsi.org/core/isMeasurementOf> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <https://saref.etsi.org/core/hasMeasurement> ;
+                                              rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                              rdfs:label "is measurement of"@en .
+
+
+###  https://saref.etsi.org/core/isPropertyOf
+<https://saref.etsi.org/core/isPropertyOf> rdf:type owl:ObjectProperty ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:label "is property of"@en .
 
 
 ###  https://saref.etsi.org/core/makesMeasurement
@@ -133,10 +174,53 @@ xsd:gDay rdf:type rdfs:Datatype .
                                                rdfs:label "measures property"@en .
 
 
+###  https://saref.etsi.org/core/property
+<https://saref.etsi.org/core/property> rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf <https://saref.etsi.org/core/isPropertyOf> ;
+                                       rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                       rdfs:label "property"@en .
+
+
+###  https://saref.etsi.org/core/relatesToMeasurement
+<https://saref.etsi.org/core/relatesToMeasurement> rdf:type owl:ObjectProperty ;
+                                                   rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                                   rdfs:label "relates to measurement"@en .
+
+
+###  https://saref.etsi.org/core/relatesToProperty
+<https://saref.etsi.org/core/relatesToProperty> rdf:type owl:ObjectProperty ;
+                                                rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                                rdfs:label "relates to property"@en .
+
+
 ###  https://saref.etsi.org/saref4syst/hasSubSystem
 <https://saref.etsi.org/saref4syst/hasSubSystem> rdf:type owl:ObjectProperty ;
                                                  rdfs:isDefinedBy <https://saref.etsi.org/saref4syst/> ;
                                                  rdfs:label "has sub-system"@en .
+
+
+###  https://saref.etsi.org/saref4watr/featureIsControlledByDevice
+<https://saref.etsi.org/saref4watr/featureIsControlledByDevice> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <https://saref.etsi.org/core/FeatureOfInterest> ;
+                                                                rdfs:range <https://saref.etsi.org/core/Device> ;
+                                                                rdfs:comment "A relationship specifying the devices that control a feature of interest."@en ;
+                                                                rdfs:label "feature is controlled by device"@en .
+
+
+###  https://saref.etsi.org/saref4watr/featureIsMeasuredByDevice
+<https://saref.etsi.org/saref4watr/featureIsMeasuredByDevice> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <https://saref.etsi.org/core/FeatureOfInterest> ;
+                                                              rdfs:range <https://saref.etsi.org/core/Device> ;
+                                                              rdfs:comment "A relationship specifying the devices that measure a feature of interest."@en ;
+                                                              rdfs:label "feature is measured by device"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasPhenomenonTime
+<https://saref.etsi.org/saref4watr/hasPhenomenonTime> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://saref.etsi.org/core/Measurement> ;
+                                                      rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+                                                      rdfs:comment "The time for which the value of a measurement applies to the feature of interest."@en ;
+                                                      rdfs:label "has phenomenon time"@en .
 
 
 ###  https://saref.etsi.org/saref4watr/isDesignedFor
@@ -151,9 +235,182 @@ xsd:gDay rdf:type rdfs:Datatype .
                                                   rdfs:label "is intended for"@en .
 
 
+###  https://w3id.org/def/pathocert/associatedWithWaterQualityProperty
+:associatedWithWaterQualityProperty rdf:type owl:ObjectProperty ;
+                                    rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                                    rdfs:label "associated With Water Quality Property"@en .
+
+
+###  https://w3id.org/def/pathocert/exploitsVulnerabilityOf
+:exploitsVulnerabilityOf rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                         rdfs:label "exploits vulnerability of"@en .
+
+
+###  https://w3id.org/def/pathocert/identifies
+:identifies rdf:type owl:ObjectProperty ;
+            rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+            rdfs:label "identifies"@en .
+
+
+###  https://w3id.org/def/pathocert/performInteraction
+:performInteraction rdf:type owl:ObjectProperty ;
+                    rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                    rdfs:label "perform Interaction"@en .
+
+
+###  https://w3id.org/def/pathocert/sourceOfDisease
+:sourceOfDisease rdf:type owl:ObjectProperty ;
+                 rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                 rdfs:label "source of disease"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://saref.etsi.org/core/hasManufacturer
+<https://saref.etsi.org/core/hasManufacturer> rdf:type owl:DatatypeProperty ;
+                                              rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)"@en ;
+                                              rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                              rdfs:label "has manufacturer"@en .
+
+
+###  https://saref.etsi.org/core/hasTimestamp
+<https://saref.etsi.org/core/hasTimestamp> rdf:type owl:DatatypeProperty ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:label "has timestamp"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasFabricationNumber
+<https://saref.etsi.org/saref4watr/hasFabricationNumber> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:range rdfs:Literal ;
+                                                         rdfs:comment "The fabrication number of a device."@en ;
+                                                         rdfs:label "has fabrication number"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasFirmwareVersion
+<https://saref.etsi.org/saref4watr/hasFirmwareVersion> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:range rdfs:Literal ;
+                                                       rdfs:comment "The firmware version of a device."@en ;
+                                                       rdfs:label "has firmware version"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasHardwareVersion
+<https://saref.etsi.org/saref4watr/hasHardwareVersion> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:range rdfs:Literal ;
+                                                       rdfs:comment "The hardware version of a device."@en ;
+                                                       rdfs:label "has hardware version"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasVersion
+<https://saref.etsi.org/saref4watr/hasVersion> rdf:type owl:DatatypeProperty ;
+                                               rdfs:range rdfs:Literal ;
+                                               rdfs:comment "The version of a device."@en ;
+                                               rdfs:label "has version"@en .
+
+
+###  https://saref.etsi.org/saref4watr/operatesAtRadioFrequency
+<https://saref.etsi.org/saref4watr/operatesAtRadioFrequency> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:comment "The radio frequency at which a device operates."@en ;
+                                                             rdfs:label "operates at radio frequency"@en .
+
+
+###  https://saref.etsi.org/saref4watr/requiresPower
+<https://saref.etsi.org/saref4watr/requiresPower> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:comment "The power required by a device."@en ;
+                                                  rdfs:label "requires power"@en .
+
+
+###  https://uri.etsi.org/ngsi-ld/properties
+<https://uri.etsi.org/ngsi-ld/properties> rdf:type owl:DatatypeProperty ;
+                                          rdfs:isDefinedBy <https://uri.etsi.org/ngsi-ld/> ;
+                                          rdfs:label "properties"@en .
+
+
+###  https://uri.etsi.org/ngsi-ld/relatedBy
+<https://uri.etsi.org/ngsi-ld/relatedBy> rdf:type owl:DatatypeProperty ;
+                                         rdfs:isDefinedBy <https://uri.etsi.org/ngsi-ld/> ;
+                                         rdfs:label "related by"@en .
+
+
+###  https://w3id.org/def/pathocert/analyseAt
+:analyseAt rdf:type owl:DatatypeProperty ;
+           rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+           rdfs:label "analyse At"@en .
+
+
+###  https://w3id.org/def/pathocert/consequence
+:consequence rdf:type owl:DatatypeProperty ;
+             rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+             rdfs:label "consequence"@en .
+
+
+###  https://w3id.org/def/pathocert/hasNotification
+:hasNotification rdf:type owl:DatatypeProperty ;
+                 rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                 rdfs:label "has Notification"@en .
+
+
+###  https://w3id.org/def/pathocert/investigation
+:investigation rdf:type owl:DatatypeProperty ;
+               rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+               rdfs:label "investigation"@en .
+
+
+###  https://w3id.org/def/pathocert/mitigationOptions
+:mitigationOptions rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "mitigation options"@en .
+
+
+###  https://w3id.org/def/pathocert/peopleDied
+:peopleDied rdf:type owl:DatatypeProperty ;
+            rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+            rdfs:label "people Died"@en .
+
+
+###  https://w3id.org/def/pathocert/peopleExposed
+:peopleExposed rdf:type owl:DatatypeProperty ;
+               rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+               rdfs:label "people Exposed"@en .
+
+
+###  https://w3id.org/def/pathocert/peopleHospitalised
+:peopleHospitalised rdf:type owl:DatatypeProperty ;
+                    rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                    rdfs:label "people Hospitalised"@en .
+
+
+###  https://w3id.org/def/pathocert/restoiration
+:restoiration rdf:type owl:DatatypeProperty ;
+              rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+              rdfs:label "restoiration"@en .
+
+
+###  https://w3id.org/def/pathocert/severity
+:severity rdf:type owl:DatatypeProperty ;
+          rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+          rdfs:label "severity"@en .
+
+
+###  https://w3id.org/def/pathocert/timeContamination
+:timeContamination rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
+                   rdfs:label "time Contamination"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
+
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
+
+
+###  http://org.semanticweb.owlapi/error#Error2
+<http://org.semanticweb.owlapi/error#Error2> rdf:type owl:Class .
+
 
 ###  http://www.opengis.net/ont/geosparql#Feature
 <http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class ;
@@ -239,7 +496,8 @@ xsd:gDay rdf:type rdfs:Datatype .
 
 ###  https://saref.etsi.org/core/Device
 <https://saref.etsi.org/core/Device> rdf:type owl:Class ;
-                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     rdfs:subClassOf <https://uri.etsi.org/ngsi-ld/Entity> ,
+                                                     [ rdf:type owl:Restriction ;
                                                        owl:onProperty <https://saref.etsi.org/core/controlsProperty> ;
                                                        owl:allValuesFrom <https://saref.etsi.org/core/Property>
                                                      ] ,
@@ -266,7 +524,34 @@ xsd:gDay rdf:type rdfs:Datatype .
 
 
 ###  https://saref.etsi.org/core/Measurement
-<https://saref.etsi.org/core/Measurement> rdf:type owl:Class .
+<https://saref.etsi.org/core/Measurement> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error1> ,
+                                                          <http://org.semanticweb.owlapi/error#Error2> ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://saref.etsi.org/core/isMeasuredIn> ;
+                                                            owl:allValuesFrom <https://saref.etsi.org/core/UnitOfMeasure>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://saref.etsi.org/core/relatesToProperty> ;
+                                                            owl:allValuesFrom <https://saref.etsi.org/core/Property>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://saref.etsi.org/core/isMeasuredIn> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <https://saref.etsi.org/core/UnitOfMeasure>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://saref.etsi.org/core/relatesToProperty> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <https://saref.etsi.org/core/Property>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://saref.etsi.org/core/hasTimestamp> ;
+                                                            owl:allValuesFrom xsd:dateTime
+                                                          ] ;
+                                          rdfs:comment "Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement."@en ;
+                                          rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                          rdfs:label "Measurement"@en .
 
 
 ###  https://saref.etsi.org/core/Meter
@@ -278,7 +563,23 @@ xsd:gDay rdf:type rdfs:Datatype .
 
 
 ###  https://saref.etsi.org/core/Property
-<https://saref.etsi.org/core/Property> rdf:type owl:Class .
+<https://saref.etsi.org/core/Property> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://uri.etsi.org/ngsi-ld/Property> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <https://saref.etsi.org/core/isControlledByDevice> ;
+                                                         owl:allValuesFrom <https://saref.etsi.org/core/Device>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <https://saref.etsi.org/core/isMeasuredByDevice> ;
+                                                         owl:allValuesFrom <https://saref.etsi.org/core/Device>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <https://saref.etsi.org/core/relatesToMeasurement> ;
+                                                         owl:allValuesFrom <https://saref.etsi.org/core/Measurement>
+                                                       ] ;
+                                       rdfs:comment "An aspect of an entity that can be observable by a sensor."@en ;
+                                       rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                       rdfs:label "Property"@en .
 
 
 ###  https://saref.etsi.org/core/Sensor
@@ -289,10 +590,46 @@ xsd:gDay rdf:type rdfs:Datatype .
                                      rdfs:label "Sensor"@en .
 
 
+###  https://saref.etsi.org/core/UnitOfMeasure
+<https://saref.etsi.org/core/UnitOfMeasure> rdf:type owl:Class ;
+                                            rdfs:comment "The unit of measure is a standard for measurement of a quantity, such as a Property. For example, Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of the Smart Appliances ontology, but this list can be extended."@en ;
+                                            rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                            rdfs:label "Unit of measure"@en .
+
+
 ###  https://saref.etsi.org/saref4syst/System
 <https://saref.etsi.org/saref4syst/System> rdf:type owl:Class ;
                                            rdfs:isDefinedBy <https://saref.etsi.org/saref4syst/> ;
                                            rdfs:label "System"@en .
+
+
+###  https://saref.etsi.org/saref4watr/AcceptabilityProperty
+<https://saref.etsi.org/saref4watr/AcceptabilityProperty> rdf:type owl:Class ;
+                                                          rdfs:subClassOf :WaterQualityProperty ;
+                                                          rdfs:comment "An acceptability property is a property of water that is related to its acceptability."@en ;
+                                                          rdfs:label "Acceptability property"@en .
+
+
+###  https://saref.etsi.org/saref4watr/Air
+<https://saref.etsi.org/saref4watr/Air> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/saref4watr/BiologicalProperty
+<https://saref.etsi.org/saref4watr/BiologicalProperty> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/saref4watr/ChemicalProperty
+<https://saref.etsi.org/saref4watr/ChemicalProperty> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :WaterQualityProperty ;
+                                                     rdfs:comment "A chemical property is a property of water that is related to chemical components."@en ;
+                                                     rdfs:label "ChemicalProperty"@en .
+
+
+###  https://saref.etsi.org/saref4watr/MicrobialProperty
+<https://saref.etsi.org/saref4watr/MicrobialProperty> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :WaterQualityProperty ;
+                                                      rdfs:comment "A microbial property is a property of water that is related to microbes."@en ;
+                                                      rdfs:label "Microbial property"@en .
 
 
 ###  https://saref.etsi.org/saref4watr/Pump
@@ -339,6 +676,13 @@ xsd:gDay rdf:type rdfs:Datatype .
                                                 rdfs:label "Water device"@en .
 
 
+###  https://saref.etsi.org/saref4watr/WaterFlowProperty
+<https://saref.etsi.org/saref4watr/WaterFlowProperty> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://saref.etsi.org/core/Property> ;
+                                                      rdfs:comment "Class to group those properties related to water flow."@en ;
+                                                      rdfs:label "Water flow property"@en .
+
+
 ###  https://saref.etsi.org/saref4watr/WaterInfrastructure
 <https://saref.etsi.org/saref4watr/WaterInfrastructure> rdf:type owl:Class ;
                                                         rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ,
@@ -356,6 +700,45 @@ xsd:gDay rdf:type rdfs:Datatype .
                                                         rdfs:label "Water infrastructure"@en .
 
 
+###  https://saref.etsi.org/saref4watr/WaterMeter
+<https://saref.etsi.org/saref4watr/WaterMeter> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://saref.etsi.org/core/Meter> ,
+                                                               <https://saref.etsi.org/saref4watr/WaterDevice> ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/core/measuresProperty> ;
+                                                                 owl:someValuesFrom <https://saref.etsi.org/saref4watr/WaterFlowProperty>
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/core/hasProperty> ;
+                                                                 owl:allValuesFrom <https://saref.etsi.org/saref4watr/WaterMeterProperty>
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/saref4watr/hasFabricationNumber> ;
+                                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/saref4watr/hasFirmwareVersion> ;
+                                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/saref4watr/hasHardwareVersion> ;
+                                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://saref.etsi.org/saref4watr/hasVersion> ;
+                                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                               ] ;
+                                               rdfs:comment "A water meter is an instrument intended to measure continuously, memorize, and display the volume of water passing through the meter."@en ;
+                                               rdfs:label "Water meter"@en .
+
+
+###  https://saref.etsi.org/saref4watr/WaterMeterProperty
+<https://saref.etsi.org/saref4watr/WaterMeterProperty> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://saref.etsi.org/core/Property> ;
+                                                       rdfs:comment "Class to group those properties related to water meters."@en ;
+                                                       rdfs:label "Water meter property"@en .
+
+
 ###  https://saref.etsi.org/saref4watr/WaterProperty
 <https://saref.etsi.org/saref4watr/WaterProperty> rdf:type owl:Class ;
                                                   rdfs:subClassOf <https://saref.etsi.org/core/Property> ;
@@ -363,8 +746,69 @@ xsd:gDay rdf:type rdfs:Datatype .
                                                   rdfs:label "Water property"@en .
 
 
+###  https://saref.etsi.org/saref4watr/WaterQualityProperty
+<https://saref.etsi.org/saref4watr/WaterQualityProperty> rdf:type owl:Class .
+
+
 ###  https://saref.etsi.org/saref4watr/WaterUse
 <https://saref.etsi.org/saref4watr/WaterUse> rdf:type owl:Class .
+
+
+###  https://uri.etsi.org/ngsi-ld/Entity
+<https://uri.etsi.org/ngsi-ld/Entity> rdf:type owl:Class ;
+                                      rdfs:comment "NGSI-LD Entity"@en ;
+                                      rdfs:label "Entity"@en .
+
+
+###  https://uri.etsi.org/ngsi-ld/Property
+<https://uri.etsi.org/ngsi-ld/Property> rdf:type owl:Class ;
+                                        rdfs:comment "NGSI-LD Property"@en ;
+                                        rdfs:label "Property"@en .
+
+
+###  https://uri.etsi.org/ngsi-ld/Relationship
+<https://uri.etsi.org/ngsi-ld/Relationship> rdf:type owl:Class ;
+                                            rdfs:comment "NGSI-LD Relationship"@en ;
+                                            rdfs:label "Relationship"@en .
+
+
+###  https://w3id.org/def/pathocert/Air
+:Air rdf:type owl:Class ;
+     rdfs:subClassOf <https://saref.etsi.org/core/FeatureOfInterest> ;
+     rdfs:comment "This class is used to define a particular air medium."@en ;
+     rdfs:label "Air"@en .
+
+
+###  https://w3id.org/def/pathocert/AirBorne
+:AirBorne rdf:type owl:Class ;
+          rdfs:subClassOf :Disease ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://saref.etsi.org/saref4watr/isIntendedFor> ;
+                            owl:someValuesFrom <https://saref.etsi.org/saref4watr/Air>
+                          ] ;
+          rdfs:comment "A air borne disease is a disease transferred by air"@en ;
+          rdfs:label "Air-Borne"@en .
+
+
+###  https://w3id.org/def/pathocert/BacteriaProperty
+:BacteriaProperty rdf:type owl:Class ;
+                  rdfs:subClassOf <https://saref.etsi.org/saref4watr/BiologicalProperty> ;
+                  rdfs:comment "A Bacteria property is a property of water that is related to specific bacterias."@en ;
+                  rdfs:label "Bacteria property"@en .
+
+
+###  https://w3id.org/def/pathocert/BiologicalProperty
+:BiologicalProperty rdf:type owl:Class ;
+                    rdfs:subClassOf :WaterQualityProperty ;
+                    rdfs:comment "A Biological property is a property of water that is related to biological contaminants and pathogens."@en ;
+                    rdfs:label "Biological property"@en .
+
+
+###  https://w3id.org/def/pathocert/ControlActions
+:ControlActions rdf:type owl:Class ;
+                rdfs:subClassOf :InteractionAffordance ;
+                rdfs:comment "a interaction situation that permit to do specific actions over a system or feature of interest."@en ;
+                rdfs:label "Control Actions"@en .
 
 
 ###  https://w3id.org/def/pathocert/DigitalTools
@@ -373,10 +817,132 @@ xsd:gDay rdf:type rdfs:Datatype .
               rdfs:label "Digital Tool"@en .
 
 
+###  https://w3id.org/def/pathocert/Disease
+:Disease rdf:type owl:Class ;
+         rdfs:comment "A collection of diseases that can be transferred by different vectors."@en ;
+         rdfs:label "Disease"@en .
+
+
+###  https://w3id.org/def/pathocert/EventAffordance
+:EventAffordance rdf:type owl:Class ;
+                 rdfs:subClassOf :InteractionAffordance ;
+                 rdfs:comment "a interaction situation that permit to create specific event"@en ;
+                 rdfs:label "Event Affordance"@en .
+
+
+###  https://w3id.org/def/pathocert/InteractionAffordance
+:InteractionAffordance rdf:type owl:Class ;
+                       rdfs:comment "a interaction situation between users of digial services ."@en ;
+                       rdfs:label "Interaction Affordance"@en .
+
+
 ###  https://w3id.org/def/pathocert/ModellingTools
 :ModellingTools rdf:type owl:Class ;
                 rdf:comment "A modelling tool is a hydrometereological tool that permit to make simulations and prediction over water infrastructure." ;
                 rdfs:label "Modelling Tools"@en .
 
+
+###  https://w3id.org/def/pathocert/NotificationAffordance
+:NotificationAffordance rdf:type owl:Class ;
+                        rdfs:subClassOf :InteractionAffordance ;
+                        rdfs:comment "a interaction situation that performs an specific notification"@en ;
+                        rdfs:label "Notification Affordance"@en .
+
+
+###  https://w3id.org/def/pathocert/PFASProperty
+:PFASProperty rdf:type owl:Class ;
+              rdfs:subClassOf <https://saref.etsi.org/saref4watr/MicrobialProperty> ;
+              rdfs:comment "A PFAS property is a property of water that is related to PFAS."@en ;
+              rdfs:label "PFAS property"@en .
+
+
+###  https://w3id.org/def/pathocert/ParasitesProperty
+:ParasitesProperty rdf:type owl:Class ;
+                   rdfs:subClassOf <https://saref.etsi.org/saref4watr/BiologicalProperty> ;
+                   rdfs:comment "A parasites property is a property of water that is related to specific parasites."@en ;
+                   rdfs:label "Parasites property"@en .
+
+
+###  https://w3id.org/def/pathocert/PharmatheuticalProperty
+:PharmatheuticalProperty rdf:type owl:Class ;
+                         rdfs:subClassOf <https://saref.etsi.org/saref4watr/ChemicalProperty> ;
+                         rdfs:comment "A pharmatheutical property is a property of water that is related to specific emerging contaminants."@en ;
+                         rdfs:label "Pharmatheutical property"@en .
+
+
+###  https://w3id.org/def/pathocert/ProtozoanProperty
+:ProtozoanProperty rdf:type owl:Class ;
+                   rdfs:subClassOf <https://saref.etsi.org/saref4watr/BiologicalProperty> ;
+                   rdfs:comment "A Protozoan property is a property of water that is related to specific protozoos."@en ;
+                   rdfs:label "Protozoan property"@en .
+
+
+###  https://w3id.org/def/pathocert/Risk
+:Risk rdf:type owl:Class ;
+      rdfs:comment "a situation involving exposure to danger."@en ;
+      rdfs:label "Risk"@en .
+
+
+###  https://w3id.org/def/pathocert/VectorBorne
+:VectorBorne rdf:type owl:Class ;
+             rdfs:subClassOf :Disease ;
+             rdfs:comment "A vector borne disease is a disease transferred by animals and ecosystems"@en ;
+             rdfs:label "Vector-Borne"@en .
+
+
+###  https://w3id.org/def/pathocert/VirusProperty
+:VirusProperty rdf:type owl:Class ;
+               rdfs:subClassOf <https://saref.etsi.org/saref4watr/BiologicalProperty> ;
+               rdfs:comment "A Virus property is a property of water that is related to specific virus."@en ;
+               rdfs:label "Virus property"@en .
+
+
+###  https://w3id.org/def/pathocert/Vulnerability
+:Vulnerability rdf:type owl:Class ;
+               rdfs:comment "Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source"@en ;
+               rdfs:label "Vulnerability"@en .
+
+
+###  https://w3id.org/def/pathocert/WaterBorne
+:WaterBorne rdf:type owl:Class ;
+            rdfs:subClassOf :Disease ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <https://saref.etsi.org/saref4watr/isIntendedFor> ;
+                              owl:someValuesFrom <https://saref.etsi.org/saref4watr/Water>
+                            ] ;
+            rdfs:comment "A water borne disease is a disease transferred by water"@en ;
+            rdfs:label "Water-Borne"@en .
+
+
+###  https://w3id.org/def/pathocert/WaterQualityMonitoringTool
+:WaterQualityMonitoringTool rdf:type owl:Class ;
+                            rdfs:subClassOf <https://saref.etsi.org/saref4watr/WaterDevice> ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://saref.etsi.org/core/hasProperty> ;
+                                              owl:allValuesFrom <https://saref.etsi.org/saref4watr/WaterQualityProperty>
+                                            ] ;
+                            rdfs:comment "An entity to simulate and predict water quality parameters, including their dispersion"@en ;
+                            rdfs:label "Water Monitoring Tool"@en .
+
+
+###  https://w3id.org/def/pathocert/WaterQualityProperty
+:WaterQualityProperty rdf:type owl:Class ;
+                      rdfs:subClassOf <https://saref.etsi.org/core/Property> ;
+                      rdfs:comment "An An aspect of an entity that can be observable by a sensor. "@en ;
+                      rdfs:label "Water Quality Property"@en .
+
+
+###  https://w3id.org/def/pathocert/WaterQualitySensor
+:WaterQualitySensor rdf:type owl:Class ;
+                    rdfs:subClassOf <https://saref.etsi.org/core/Sensor> ;
+                    rdfs:comment "An entity to measure water quality parameters."@en ;
+                    rdfs:label "Water Quality Sensor"@en .
+
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+[ owl:cardinality "1"^^xsd:nonNegativeInteger
+ ] .
 
 ###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
