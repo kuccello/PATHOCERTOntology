@@ -1,13 +1,46 @@
 {
   "@context" : {
+    "properties" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/properties"
+    },
     "ModellingTools" : {
       "@id" : "https://w3id.org/def/pathocert/ModellingTools"
+    },
+    "identifies" : {
+      "@id" : "https://w3id.org/def/pathocert/identifies",
+      "@type" : "@id"
+    },
+    "hasNotification" : {
+      "@id" : "https://w3id.org/def/pathocert/hasNotification"
+    },
+    "UnitOfMeasure" : {
+      "@id" : "https://saref.etsi.org/core/UnitOfMeasure"
+    },
+    "hasManufacturer" : {
+      "@id" : "https://saref.etsi.org/core/hasManufacturer"
     },
     "Meter" : {
       "@id" : "https://saref.etsi.org/core/Meter"
     },
+    "isControlledByDevice" : {
+      "@id" : "https://saref.etsi.org/core/isControlledByDevice",
+      "@type" : "@id"
+    },
+    "featureIsControlledByDevice" : {
+      "@id" : "https://saref.etsi.org/saref4watr/featureIsControlledByDevice",
+      "@type" : "@id"
+    },
+    "ChemicalProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/ChemicalProperty"
+    },
     "versionInfo" : {
       "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "AirBorne" : {
+      "@id" : "https://w3id.org/def/pathocert/AirBorne"
+    },
+    "Relationship" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/Relationship"
     },
     "license" : {
       "@id" : "http://purl.org/dc/terms/license"
@@ -18,11 +51,25 @@
     "DayOfWeek" : {
       "@id" : "http://www.w3.org/2006/time#DayOfWeek"
     },
+    "Vulnerability" : {
+      "@id" : "https://w3id.org/def/pathocert/Vulnerability"
+    },
+    "AcceptabilityProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/AcceptabilityProperty"
+    },
     "issued" : {
       "@id" : "http://purl.org/dc/terms/issued"
     },
+    "featureIsMeasuredByDevice" : {
+      "@id" : "https://saref.etsi.org/saref4watr/featureIsMeasuredByDevice",
+      "@type" : "@id"
+    },
     "FeatureOfInterest" : {
       "@id" : "https://saref.etsi.org/core/FeatureOfInterest"
+    },
+    "hasVersion" : {
+      "@id" : "https://saref.etsi.org/saref4watr/hasVersion",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "measuresProperty" : {
       "@id" : "https://saref.etsi.org/core/measuresProperty",
@@ -38,27 +85,54 @@
       "@id" : "http://www.opengis.net/ont/geosparql#sfWithin",
       "@type" : "@id"
     },
+    "requiresPower" : {
+      "@id" : "https://saref.etsi.org/saref4watr/requiresPower"
+    },
+    "PFASProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/PFASProperty"
+    },
     "Feature" : {
       "@id" : "http://www.opengis.net/ont/geosparql#Feature"
     },
     "label" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
     },
+    "peopleDied" : {
+      "@id" : "https://w3id.org/def/pathocert/peopleDied"
+    },
     "Measurement" : {
       "@id" : "https://saref.etsi.org/core/Measurement"
+    },
+    "WaterMeter" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterMeter"
     },
     "WaterInfrastructure" : {
       "@id" : "https://saref.etsi.org/saref4watr/WaterInfrastructure"
     },
+    "consequence" : {
+      "@id" : "https://w3id.org/def/pathocert/consequence"
+    },
     "WaterUse" : {
       "@id" : "https://saref.etsi.org/saref4watr/WaterUse"
+    },
+    "Disease" : {
+      "@id" : "https://w3id.org/def/pathocert/Disease"
+    },
+    "ParasitesProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/ParasitesProperty"
     },
     "DigitalTools" : {
       "@id" : "https://w3id.org/def/pathocert/DigitalTools"
     },
+    "ControlActions" : {
+      "@id" : "https://w3id.org/def/pathocert/ControlActions"
+    },
     "hasProperty" : {
       "@id" : "https://saref.etsi.org/core/hasProperty",
       "@type" : "@id"
+    },
+    "Air" : {
+      "@id" : "https://w3id.org/def/pathocert/Air"
     },
     "measurementMadeBy" : {
       "@id" : "https://saref.etsi.org/core/measurementMadeBy",
@@ -67,24 +141,87 @@
     "Interval" : {
       "@id" : "http://www.w3.org/2006/time#Interval"
     },
+    "Risk" : {
+      "@id" : "https://w3id.org/def/pathocert/Risk"
+    },
     "creator" : {
       "@id" : "http://purl.org/dc/terms/creator"
     },
     "Water" : {
       "@id" : "https://saref.etsi.org/saref4watr/Water"
     },
+    "operatesAtRadioFrequency" : {
+      "@id" : "https://saref.etsi.org/saref4watr/operatesAtRadioFrequency"
+    },
+    "exploitsVulnerabilityOf" : {
+      "@id" : "https://w3id.org/def/pathocert/exploitsVulnerabilityOf",
+      "@type" : "@id"
+    },
+    "BiologicalProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/BiologicalProperty"
+    },
+    "relatedBy" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/relatedBy"
+    },
+    "InteractionAffordance" : {
+      "@id" : "https://w3id.org/def/pathocert/InteractionAffordance"
+    },
+    "WaterQualitySensor" : {
+      "@id" : "https://w3id.org/def/pathocert/WaterQualitySensor"
+    },
+    "Error1" : {
+      "@id" : "http://org.semanticweb.owlapi/error#Error1"
+    },
+    "associatedWithWaterQualityProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/associatedWithWaterQualityProperty",
+      "@type" : "@id"
+    },
+    "investigation" : {
+      "@id" : "https://w3id.org/def/pathocert/investigation"
+    },
     "TemporalEntity" : {
       "@id" : "http://www.w3.org/2006/time#TemporalEntity"
+    },
+    "mitigationOptions" : {
+      "@id" : "https://w3id.org/def/pathocert/mitigationOptions"
     },
     "hasSubSystem" : {
       "@id" : "https://saref.etsi.org/saref4syst/hasSubSystem",
       "@type" : "@id"
     },
+    "isMeasurementOf" : {
+      "@id" : "https://saref.etsi.org/core/isMeasurementOf",
+      "@type" : "@id"
+    },
+    "relatesToMeasurement" : {
+      "@id" : "https://saref.etsi.org/core/relatesToMeasurement",
+      "@type" : "@id"
+    },
     "WaterAsset" : {
       "@id" : "https://saref.etsi.org/saref4watr/WaterAsset"
     },
+    "isMeasuredByDevice" : {
+      "@id" : "https://saref.etsi.org/core/isMeasuredByDevice",
+      "@type" : "@id"
+    },
+    "hasHardwareVersion" : {
+      "@id" : "https://saref.etsi.org/saref4watr/hasHardwareVersion",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
     "preferredNamespacePrefix" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "performInteraction" : {
+      "@id" : "https://w3id.org/def/pathocert/performInteraction",
+      "@type" : "@id"
+    },
+    "property" : {
+      "@id" : "https://saref.etsi.org/core/property",
+      "@type" : "@id"
+    },
+    "hasFirmwareVersion" : {
+      "@id" : "https://saref.etsi.org/saref4watr/hasFirmwareVersion",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "isDefinedBy" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
@@ -92,8 +229,21 @@
     "Point" : {
       "@id" : "http://www.opengis.net/ont/sf#Point"
     },
+    "peopleHospitalised" : {
+      "@id" : "https://w3id.org/def/pathocert/peopleHospitalised"
+    },
+    "PharmatheuticalProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/PharmatheuticalProperty"
+    },
     "makesMeasurement" : {
       "@id" : "https://saref.etsi.org/core/makesMeasurement",
+      "@type" : "@id"
+    },
+    "VirusProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/VirusProperty"
+    },
+    "sourceOfDisease" : {
+      "@id" : "https://w3id.org/def/pathocert/sourceOfDisease",
       "@type" : "@id"
     },
     "hasGeometry" : {
@@ -110,8 +260,16 @@
     "title" : {
       "@id" : "http://purl.org/dc/terms/title"
     },
+    "hasPhenomenonTime" : {
+      "@id" : "https://saref.etsi.org/saref4watr/hasPhenomenonTime",
+      "@type" : "@id"
+    },
     "source" : {
       "@id" : "http://purl.org/dc/terms/source"
+    },
+    "isMeasuredIn" : {
+      "@id" : "https://saref.etsi.org/core/isMeasuredIn",
+      "@type" : "@id"
     },
     "publisher" : {
       "@id" : "http://purl.org/dc/terms/publisher"
@@ -119,11 +277,46 @@
     "SpatialObject" : {
       "@id" : "http://www.opengis.net/ont/geosparql#SpatialObject"
     },
+    "EventAffordance" : {
+      "@id" : "https://w3id.org/def/pathocert/EventAffordance"
+    },
     "modified" : {
       "@id" : "http://purl.org/dc/terms/modified"
     },
+    "VectorBorne" : {
+      "@id" : "https://w3id.org/def/pathocert/VectorBorne"
+    },
+    "Error2" : {
+      "@id" : "http://org.semanticweb.owlapi/error#Error2"
+    },
+    "BacteriaProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/BacteriaProperty"
+    },
+    "isPropertyOf" : {
+      "@id" : "https://saref.etsi.org/core/isPropertyOf",
+      "@type" : "@id"
+    },
+    "WaterQualityProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterQualityProperty"
+    },
     "Pump" : {
       "@id" : "https://saref.etsi.org/saref4watr/Pump"
+    },
+    "Entity" : {
+      "@id" : "https://uri.etsi.org/ngsi-ld/Entity"
+    },
+    "peopleExposed" : {
+      "@id" : "https://w3id.org/def/pathocert/peopleExposed"
+    },
+    "timeContamination" : {
+      "@id" : "https://w3id.org/def/pathocert/timeContamination"
+    },
+    "relatesToProperty" : {
+      "@id" : "https://saref.etsi.org/core/relatesToProperty",
+      "@type" : "@id"
+    },
+    "analyseAt" : {
+      "@id" : "https://w3id.org/def/pathocert/analyseAt"
     },
     "Actuator" : {
       "@id" : "https://saref.etsi.org/core/Actuator"
@@ -149,6 +342,9 @@
     "Polygon" : {
       "@id" : "http://www.opengis.net/ont/sf#Polygon"
     },
+    "severity" : {
+      "@id" : "https://w3id.org/def/pathocert/severity"
+    },
     "System" : {
       "@id" : "https://saref.etsi.org/saref4syst/System"
     },
@@ -159,17 +355,48 @@
     "Device" : {
       "@id" : "https://saref.etsi.org/core/Device"
     },
+    "hasFabricationNumber" : {
+      "@id" : "https://saref.etsi.org/saref4watr/hasFabricationNumber",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "WaterMeterProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterMeterProperty"
+    },
     "Valve" : {
       "@id" : "https://saref.etsi.org/saref4watr/Valve"
     },
+    "hasTimestamp" : {
+      "@id" : "https://saref.etsi.org/core/hasTimestamp"
+    },
+    "MicrobialProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/MicrobialProperty"
+    },
+    "WaterFlowProperty" : {
+      "@id" : "https://saref.etsi.org/saref4watr/WaterFlowProperty"
+    },
     "WaterProperty" : {
       "@id" : "https://saref.etsi.org/saref4watr/WaterProperty"
+    },
+    "WaterBorne" : {
+      "@id" : "https://w3id.org/def/pathocert/WaterBorne"
+    },
+    "ProtozoanProperty" : {
+      "@id" : "https://w3id.org/def/pathocert/ProtozoanProperty"
+    },
+    "NotificationAffordance" : {
+      "@id" : "https://w3id.org/def/pathocert/NotificationAffordance"
     },
     "description" : {
       "@id" : "http://purl.org/dc/terms/description"
     },
     "preferredNamespaceUri" : {
       "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
+    },
+    "restoiration" : {
+      "@id" : "https://w3id.org/def/pathocert/restoiration"
+    },
+    "WaterQualityMonitoringTool" : {
+      "@id" : "https://w3id.org/def/pathocert/WaterQualityMonitoringTool"
     },
     "Sensor" : {
       "@id" : "https://saref.etsi.org/core/Sensor"

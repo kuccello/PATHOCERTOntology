@@ -114,6 +114,20 @@
     
 
 
+    <!-- http://www.w3.org/2002/07/owl#cardinality -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#cardinality"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -188,7 +202,10 @@
     <!-- https://saref.etsi.org/core/hasMeasurement -->
 
 
-    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/hasMeasurement"/>
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/hasMeasurement">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">has measurement</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -198,6 +215,57 @@
     <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/hasProperty">
         <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
         <rdfs:label xml:lang="en">has property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/isControlledByDevice -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/isControlledByDevice">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">is controlled by device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/isMeasuredByDevice -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/isMeasuredByDevice">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">is measured by device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/isMeasuredIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/isMeasuredIn">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">is measured in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/isMeasurementOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/isMeasurementOf">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/core/hasMeasurement"/>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">is measurement of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/isPropertyOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/isPropertyOf">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">is property of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -233,12 +301,79 @@
     
 
 
+    <!-- https://saref.etsi.org/core/property -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/property">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/core/isPropertyOf"/>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/relatesToMeasurement -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/relatesToMeasurement">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">relates to measurement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/relatesToProperty -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/core/relatesToProperty">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">relates to property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://saref.etsi.org/saref4syst/hasSubSystem -->
 
 
     <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/hasSubSystem">
         <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/saref4syst/"/>
         <rdfs:label xml:lang="en">has sub-system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/featureIsControlledByDevice -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4watr/featureIsControlledByDevice">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/core/FeatureOfInterest"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/core/Device"/>
+        <rdfs:comment xml:lang="en">A relationship specifying the devices that control a feature of interest.</rdfs:comment>
+        <rdfs:label xml:lang="en">feature is controlled by device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/featureIsMeasuredByDevice -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4watr/featureIsMeasuredByDevice">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/core/FeatureOfInterest"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/core/Device"/>
+        <rdfs:comment xml:lang="en">A relationship specifying the devices that measure a feature of interest.</rdfs:comment>
+        <rdfs:label xml:lang="en">feature is measured by device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/hasPhenomenonTime -->
+
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4watr/hasPhenomenonTime">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/core/Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">The time for which the value of a measurement applies to the feature of interest.</rdfs:comment>
+        <rdfs:label xml:lang="en">has phenomenon time</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -263,6 +398,283 @@
     
 
 
+    <!-- https://w3id.org/def/pathocert/associatedWithWaterQualityProperty -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/pathocert/associatedWithWaterQualityProperty">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">associated With Water Quality Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/exploitsVulnerabilityOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/pathocert/exploitsVulnerabilityOf">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">exploits vulnerability of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/identifies -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/pathocert/identifies">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">identifies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/performInteraction -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/pathocert/performInteraction">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">perform Interaction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/sourceOfDisease -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/pathocert/sourceOfDisease">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">source of disease</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://saref.etsi.org/core/hasManufacturer -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/core/hasManufacturer">
+        <rdfs:comment xml:lang="en">A relationship identifying the manufacturer of an entity (e.g., device)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">has manufacturer</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/core/hasTimestamp -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/core/hasTimestamp">
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">has timestamp</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/hasFabricationNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/hasFabricationNumber">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The fabrication number of a device.</rdfs:comment>
+        <rdfs:label xml:lang="en">has fabrication number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/hasFirmwareVersion -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/hasFirmwareVersion">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The firmware version of a device.</rdfs:comment>
+        <rdfs:label xml:lang="en">has firmware version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/hasHardwareVersion -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/hasHardwareVersion">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The hardware version of a device.</rdfs:comment>
+        <rdfs:label xml:lang="en">has hardware version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/hasVersion -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/hasVersion">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The version of a device.</rdfs:comment>
+        <rdfs:label xml:lang="en">has version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/operatesAtRadioFrequency -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/operatesAtRadioFrequency">
+        <rdfs:comment xml:lang="en">The radio frequency at which a device operates.</rdfs:comment>
+        <rdfs:label xml:lang="en">operates at radio frequency</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/requiresPower -->
+
+
+    <owl:DatatypeProperty rdf:about="https://saref.etsi.org/saref4watr/requiresPower">
+        <rdfs:comment xml:lang="en">The power required by a device.</rdfs:comment>
+        <rdfs:label xml:lang="en">requires power</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://uri.etsi.org/ngsi-ld/properties -->
+
+
+    <owl:DatatypeProperty rdf:about="https://uri.etsi.org/ngsi-ld/properties">
+        <rdfs:isDefinedBy rdf:resource="https://uri.etsi.org/ngsi-ld/"/>
+        <rdfs:label xml:lang="en">properties</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://uri.etsi.org/ngsi-ld/relatedBy -->
+
+
+    <owl:DatatypeProperty rdf:about="https://uri.etsi.org/ngsi-ld/relatedBy">
+        <rdfs:isDefinedBy rdf:resource="https://uri.etsi.org/ngsi-ld/"/>
+        <rdfs:label xml:lang="en">related by</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/analyseAt -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/analyseAt">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">analyse At</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/consequence -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/consequence">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">consequence</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/hasNotification -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/hasNotification">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">has Notification</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/investigation -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/investigation">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">investigation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/mitigationOptions -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/mitigationOptions">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">mitigation options</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/peopleDied -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/peopleDied">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">people Died</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/peopleExposed -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/peopleExposed">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">people Exposed</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/peopleHospitalised -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/peopleHospitalised">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">people Hospitalised</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/restoiration -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/restoiration">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">restoiration</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/severity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/severity">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">severity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/timeContamination -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/pathocert/timeContamination">
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/def/pathocert/"/>
+        <rdfs:label xml:lang="en">time Contamination</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -272,6 +684,20 @@
      -->
 
 
+    
+
+
+    <!-- http://org.semanticweb.owlapi/error#Error1 -->
+
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error1"/>
+    
+
+
+    <!-- http://org.semanticweb.owlapi/error#Error2 -->
+
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error2"/>
     
 
 
@@ -405,6 +831,7 @@
 
 
     <owl:Class rdf:about="https://saref.etsi.org/core/Device">
+        <rdfs:subClassOf rdf:resource="https://uri.etsi.org/ngsi-ld/Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://saref.etsi.org/core/controlsProperty"/>
@@ -448,7 +875,45 @@
     <!-- https://saref.etsi.org/core/Measurement -->
 
 
-    <owl:Class rdf:about="https://saref.etsi.org/core/Measurement"/>
+    <owl:Class rdf:about="https://saref.etsi.org/core/Measurement">
+        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error1"/>
+        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error2"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/isMeasuredIn"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/core/UnitOfMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/relatesToProperty"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/core/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/isMeasuredIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://saref.etsi.org/core/UnitOfMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/relatesToProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://saref.etsi.org/core/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/hasTimestamp"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">Measurement</rdfs:label>
+    </owl:Class>
     
 
 
@@ -467,7 +932,30 @@
     <!-- https://saref.etsi.org/core/Property -->
 
 
-    <owl:Class rdf:about="https://saref.etsi.org/core/Property"/>
+    <owl:Class rdf:about="https://saref.etsi.org/core/Property">
+        <rdfs:subClassOf rdf:resource="https://uri.etsi.org/ngsi-ld/Property"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/isControlledByDevice"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/core/Device"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/isMeasuredByDevice"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/core/Device"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/relatesToMeasurement"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/core/Measurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An aspect of an entity that can be observable by a sensor.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">Property</rdfs:label>
+    </owl:Class>
     
 
 
@@ -483,12 +971,70 @@
     
 
 
+    <!-- https://saref.etsi.org/core/UnitOfMeasure -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/core/UnitOfMeasure">
+        <rdfs:comment xml:lang="en">The unit of measure is a standard for measurement of a quantity, such as a Property. For example, Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called &quot;watt&quot;. Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of the Smart Appliances ontology, but this list can be extended.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/core/"/>
+        <rdfs:label xml:lang="en">Unit of measure</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://saref.etsi.org/saref4syst/System -->
 
 
     <owl:Class rdf:about="https://saref.etsi.org/saref4syst/System">
         <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/saref4syst/"/>
         <rdfs:label xml:lang="en">System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/AcceptabilityProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/AcceptabilityProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/WaterQualityProperty"/>
+        <rdfs:comment xml:lang="en">An acceptability property is a property of water that is related to its acceptability.</rdfs:comment>
+        <rdfs:label xml:lang="en">Acceptability property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/Air -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/Air"/>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/BiologicalProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/BiologicalProperty"/>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/ChemicalProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/ChemicalProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/WaterQualityProperty"/>
+        <rdfs:comment xml:lang="en">A chemical property is a property of water that is related to chemical components.</rdfs:comment>
+        <rdfs:label xml:lang="en">ChemicalProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/MicrobialProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/MicrobialProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/WaterQualityProperty"/>
+        <rdfs:comment xml:lang="en">A microbial property is a property of water that is related to microbes.</rdfs:comment>
+        <rdfs:label xml:lang="en">Microbial property</rdfs:label>
     </owl:Class>
     
 
@@ -559,6 +1105,17 @@
     
 
 
+    <!-- https://saref.etsi.org/saref4watr/WaterFlowProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/WaterFlowProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Property"/>
+        <rdfs:comment xml:lang="en">Class to group those properties related to water flow.</rdfs:comment>
+        <rdfs:label xml:lang="en">Water flow property</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://saref.etsi.org/saref4watr/WaterInfrastructure -->
 
 
@@ -584,6 +1141,65 @@
     
 
 
+    <!-- https://saref.etsi.org/saref4watr/WaterMeter -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/WaterMeter">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Meter"/>
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/WaterDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/measuresProperty"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4watr/WaterFlowProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/hasProperty"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/saref4watr/WaterMeterProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/hasFabricationNumber"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/hasFirmwareVersion"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/hasHardwareVersion"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/hasVersion"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A water meter is an instrument intended to measure continuously, memorize, and display the volume of water passing through the meter.</rdfs:comment>
+        <rdfs:label xml:lang="en">Water meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4watr/WaterMeterProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/WaterMeterProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Property"/>
+        <rdfs:comment xml:lang="en">Class to group those properties related to water meters.</rdfs:comment>
+        <rdfs:label xml:lang="en">Water meter property</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://saref.etsi.org/saref4watr/WaterProperty -->
 
 
@@ -595,10 +1211,108 @@
     
 
 
+    <!-- https://saref.etsi.org/saref4watr/WaterQualityProperty -->
+
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4watr/WaterQualityProperty"/>
+    
+
+
     <!-- https://saref.etsi.org/saref4watr/WaterUse -->
 
 
     <owl:Class rdf:about="https://saref.etsi.org/saref4watr/WaterUse"/>
+    
+
+
+    <!-- https://uri.etsi.org/ngsi-ld/Entity -->
+
+
+    <owl:Class rdf:about="https://uri.etsi.org/ngsi-ld/Entity">
+        <rdfs:comment xml:lang="en">NGSI-LD Entity</rdfs:comment>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://uri.etsi.org/ngsi-ld/Property -->
+
+
+    <owl:Class rdf:about="https://uri.etsi.org/ngsi-ld/Property">
+        <rdfs:comment xml:lang="en">NGSI-LD Property</rdfs:comment>
+        <rdfs:label xml:lang="en">Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://uri.etsi.org/ngsi-ld/Relationship -->
+
+
+    <owl:Class rdf:about="https://uri.etsi.org/ngsi-ld/Relationship">
+        <rdfs:comment xml:lang="en">NGSI-LD Relationship</rdfs:comment>
+        <rdfs:label xml:lang="en">Relationship</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/Air -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/Air">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/FeatureOfInterest"/>
+        <rdfs:comment xml:lang="en">This class is used to define a particular air medium.</rdfs:comment>
+        <rdfs:label xml:lang="en">Air</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/AirBorne -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/AirBorne">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/Disease"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/isIntendedFor"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4watr/Air"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A air borne disease is a disease transferred by air</rdfs:comment>
+        <rdfs:label xml:lang="en">Air-Borne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/BacteriaProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/BacteriaProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/BiologicalProperty"/>
+        <rdfs:comment xml:lang="en">A Bacteria property is a property of water that is related to specific bacterias.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bacteria property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/BiologicalProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/BiologicalProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/WaterQualityProperty"/>
+        <rdfs:comment xml:lang="en">A Biological property is a property of water that is related to biological contaminants and pathogens.</rdfs:comment>
+        <rdfs:label xml:lang="en">Biological property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/ControlActions -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/ControlActions">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/InteractionAffordance"/>
+        <rdfs:comment xml:lang="en">a interaction situation that permit to do specific actions over a system or feature of interest.</rdfs:comment>
+        <rdfs:label xml:lang="en">Control Actions</rdfs:label>
+    </owl:Class>
     
 
 
@@ -612,6 +1326,37 @@
     
 
 
+    <!-- https://w3id.org/def/pathocert/Disease -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/Disease">
+        <rdfs:comment xml:lang="en">A collection of diseases that can be transferred by different vectors.</rdfs:comment>
+        <rdfs:label xml:lang="en">Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/EventAffordance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/EventAffordance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/InteractionAffordance"/>
+        <rdfs:comment xml:lang="en">a interaction situation that permit to create specific event</rdfs:comment>
+        <rdfs:label xml:lang="en">Event Affordance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/InteractionAffordance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/InteractionAffordance">
+        <rdfs:comment xml:lang="en">a interaction situation between users of digial services .</rdfs:comment>
+        <rdfs:label xml:lang="en">Interaction Affordance</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/def/pathocert/ModellingTools -->
 
 
@@ -619,6 +1364,165 @@
         <rdf:comment>A modelling tool is a hydrometereological tool that permit to make simulations and prediction over water infrastructure.</rdf:comment>
         <rdfs:label xml:lang="en">Modelling Tools</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/NotificationAffordance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/NotificationAffordance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/InteractionAffordance"/>
+        <rdfs:comment xml:lang="en">a interaction situation that performs an specific notification</rdfs:comment>
+        <rdfs:label xml:lang="en">Notification Affordance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/PFASProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/PFASProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/MicrobialProperty"/>
+        <rdfs:comment xml:lang="en">A PFAS property is a property of water that is related to PFAS.</rdfs:comment>
+        <rdfs:label xml:lang="en">PFAS property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/ParasitesProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/ParasitesProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/BiologicalProperty"/>
+        <rdfs:comment xml:lang="en">A parasites property is a property of water that is related to specific parasites.</rdfs:comment>
+        <rdfs:label xml:lang="en">Parasites property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/PharmatheuticalProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/PharmatheuticalProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/ChemicalProperty"/>
+        <rdfs:comment xml:lang="en">A pharmatheutical property is a property of water that is related to specific emerging contaminants.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pharmatheutical property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/ProtozoanProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/ProtozoanProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/BiologicalProperty"/>
+        <rdfs:comment xml:lang="en">A Protozoan property is a property of water that is related to specific protozoos.</rdfs:comment>
+        <rdfs:label xml:lang="en">Protozoan property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/Risk -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/Risk">
+        <rdfs:comment xml:lang="en">a situation involving exposure to danger.</rdfs:comment>
+        <rdfs:label xml:lang="en">Risk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/VectorBorne -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/VectorBorne">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/Disease"/>
+        <rdfs:comment xml:lang="en">A vector borne disease is a disease transferred by animals and ecosystems</rdfs:comment>
+        <rdfs:label xml:lang="en">Vector-Borne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/VirusProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/VirusProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/BiologicalProperty"/>
+        <rdfs:comment xml:lang="en">A Virus property is a property of water that is related to specific virus.</rdfs:comment>
+        <rdfs:label xml:lang="en">Virus property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/Vulnerability -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/Vulnerability">
+        <rdfs:comment xml:lang="en">Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source</rdfs:comment>
+        <rdfs:label xml:lang="en">Vulnerability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/WaterBorne -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/WaterBorne">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/pathocert/Disease"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4watr/isIntendedFor"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4watr/Water"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A water borne disease is a disease transferred by water</rdfs:comment>
+        <rdfs:label xml:lang="en">Water-Borne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/WaterQualityMonitoringTool -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/WaterQualityMonitoringTool">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4watr/WaterDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/core/hasProperty"/>
+                <owl:allValuesFrom rdf:resource="https://saref.etsi.org/saref4watr/WaterQualityProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An entity to simulate and predict water quality parameters, including their dispersion</rdfs:comment>
+        <rdfs:label xml:lang="en">Water Monitoring Tool</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/WaterQualityProperty -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/WaterQualityProperty">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Property"/>
+        <rdfs:comment xml:lang="en">An An aspect of an entity that can be observable by a sensor. </rdfs:comment>
+        <rdfs:label xml:lang="en">Water Quality Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/pathocert/WaterQualitySensor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/pathocert/WaterQualitySensor">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Sensor"/>
+        <rdfs:comment xml:lang="en">An entity to measure water quality parameters.</rdfs:comment>
+        <rdfs:label xml:lang="en">Water Quality Sensor</rdfs:label>
+    </owl:Class>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    </rdf:Description>
 </rdf:RDF>
 
 
