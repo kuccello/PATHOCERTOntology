@@ -338,6 +338,16 @@ pathocert:mitigationOptions rdf:type owl:DatatypeProperty ;
                    rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
                    rdfs:label "mitigation options"@en .
 
+###  https://uri.etsi.org/ngsi-ld/properties
+ngsild:properties rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://uri.etsi.org/ngsi-ld/> ;
+                   rdfs:label "properties"@en .
+
+###  https://uri.etsi.org/ngsi-ld/relatedBy
+ngsild:relatedBy rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy <https://uri.etsi.org/ngsi-ld/> ;
+                   rdfs:label "related by"@en .
+
 ###  https://w3id.org/def/pathocert/restoiration
 pathocert:restoiration rdf:type owl:DatatypeProperty ;
                    rdfs:isDefinedBy <https://w3id.org/def/pathocert/> ;
@@ -494,7 +504,8 @@ s4watr:WaterDevice rdf:type owl:Class ;
 
 ###  https://saref.etsi.org/core/Device
 saref:Device rdf:type owl:Class ;
-             rdfs:subClassOf [ rdf:type owl:Restriction ;
+             rdfs:subClassOf ngsild:Entity,
+                             [ rdf:type owl:Restriction ;
                                owl:onProperty saref:controlsProperty ;
                                owl:allValuesFrom saref:Property
                              ] ,
@@ -646,7 +657,8 @@ saref:Measurement rdf:type owl:Class ;
 
 ###  https://saref.etsi.org/core/Property
 saref:Property rdf:type owl:Class ;
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
+               rdfs:subClassOf ngsild:Property,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty saref:isControlledByDevice ;
                                  owl:allValuesFrom saref:Device
                                ] ,
@@ -808,6 +820,20 @@ pathocert:NotificationAffordance rdf:type owl:Class ;
                         rdfs:comment "a interaction situation that performs an specific notification"@en ;
                         rdfs:label "Notification Affordance"@en .
 
+###  https://uri.etsi.org/ngsi-ld/Entity
+ngsild:Entity rdf:type owl:Class ;
+                        rdfs:comment "NGSI-LD Entity"@en ;
+                        rdfs:label "Entity"@en .
+
+###  https://uri.etsi.org/ngsi-ld/Property
+ngsild:Property rdf:type owl:Class ;
+                        rdfs:comment "NGSI-LD Property"@en ;
+                        rdfs:label "Property"@en .
+
+###  https://uri.etsi.org/ngsi-ld/Relationship
+ngsild:Relationship rdf:type owl:Class ;
+                        rdfs:comment "NGSI-LD Relationship"@en ;
+                        rdfs:label "Relationship"@en .
 
 #################################################################
 #    Individuals
